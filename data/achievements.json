@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ach-001",
+    "tournament": "AIS ESPORTS S SERIES 2026 LOWER NORTH",
+    "game": "rov",
+    "rank": "รางวัลชนะเลิศ",
+    "tier": "champion",
+    "scope": "regional",
+    "date": "2026-08-29",
+    "teamName": "PPS Esport (ROV)",
+    "image": "/images/achievements/IMG_9003.jpg",
+    "note": ""
+  },
+  {
+    "id": "ach-002",
+    "tournament": "AIS ESPORTS S SERIES 2026 PHICHIT",
+    "game": "rov",
+    "rank": "รองชนะเลิศอันดับ 1",
+    "tier": "runner-up",
+    "scope": "province",
+    "date": "2026-08-05",
+    "teamName": "PPS Esport (ROV)",
+    "image": "/images/achievements/2ndPlace.png",
+    "note": ""
+  }
+]

@@ -1,0 +1,345 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   PPSESPORT — DESIGN SYSTEM
+   Minimal Modern · Premium Esports · Soft Gradient
+   ========================================================================== */
+
+@theme {
+  /* ------------------------------- Palette ------------------------------- */
+  --color-ink: #142b50;
+  --color-ink-soft: #3c5478;
+  --color-ink-mute: #5a6b85;
+  --color-pink: #f4bfd5;
+  --color-pink-soft: #fdebf4;
+  --color-pink-deep: #a8447a;
+  --color-sky: #a9ddf5;
+  --color-sky-soft: #eaf6fc;
+  --color-sky-deep: #1b6e96;
+  --color-mist: #eaf6fc;
+  --color-paper: #ffffff;
+
+  /* ------------------------------ Typography ----------------------------- */
+  --font-display: var(--font-sora), "Sora", "Segoe UI", system-ui, sans-serif;
+  --font-sans: var(--font-plex-thai), "IBM Plex Sans Thai", "Sarabun", Tahoma,
+    "Leelawadee UI", system-ui, sans-serif;
+
+  /* -------------------------------- Radius ------------------------------- */
+  --radius-xl2: 1.25rem;
+  --radius-xl3: 1.75rem;
+  --radius-xl4: 2.25rem;
+
+  /* -------------------------------- Shadow ------------------------------- */
+  --shadow-soft: 0 1px 2px rgb(20 43 80 / 0.04),
+    0 8px 24px -8px rgb(20 43 80 / 0.08);
+  --shadow-lift: 0 2px 4px rgb(20 43 80 / 0.04),
+    0 24px 48px -16px rgb(20 43 80 / 0.16);
+  --shadow-glow-pink: 0 18px 48px -20px rgb(224 123 174 / 0.55);
+  --shadow-glow-sky: 0 18px 48px -20px rgb(46 155 209 / 0.5);
+
+  /* ------------------------------ Animation ------------------------------ */
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-float-slow: float-slow 9s ease-in-out infinite;
+  --animate-float-slower: float-slow 13s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.4s linear infinite;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+@layer base {
+  * {
+    border-color: color-mix(in oklab, var(--color-ink) 8%, transparent);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Sticky navbar offset for in-page anchors. */
+  section[id],
+  div[id] {
+    scroll-margin-top: 6.5rem;
+  }
+
+  ::selection {
+    background-color: var(--color-pink);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-sky-deep);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-sky-soft);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--color-ink) 22%, transparent);
+    border-radius: 999px;
+    border: 3px solid var(--color-sky-soft);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in oklab, var(--color-ink) 38%, transparent);
+  }
+}
+
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+
+@layer utilities {
+  /* Signature brand gradient. */
+  .text-gradient {
+    background-image: linear-gradient(
+      100deg,
+      var(--color-pink-deep) 0%,
+      var(--color-ink) 42%,
+      var(--color-sky-deep) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-soft {
+    background-image: linear-gradient(
+      100deg,
+      var(--color-pink-deep) 0%,
+      var(--color-sky-deep) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .bg-brand-gradient {
+    background-image: linear-gradient(
+      120deg,
+      var(--color-pink-soft) 0%,
+      #ffffff 45%,
+      var(--color-sky-soft) 100%
+    );
+  }
+
+  .bg-brand-gradient-deep {
+    background-image: linear-gradient(
+      130deg,
+      var(--color-pink) 0%,
+      #fdf1f6 35%,
+      var(--color-sky) 100%
+    );
+  }
+
+  .bg-brand-radial {
+    background-image: radial-gradient(
+        60% 55% at 12% 8%,
+        rgb(244 191 213 / 0.55) 0%,
+        transparent 60%
+      ),
+      radial-gradient(50% 50% at 92% 12%, rgb(169 221 245 / 0.55) 0%, transparent 62%),
+      radial-gradient(70% 60% at 60% 100%, rgb(234 246 252 / 0.9) 0%, transparent 70%);
+  }
+
+  .border-brand {
+    border-color: color-mix(in oklab, var(--color-ink) 10%, transparent);
+  }
+
+  .ring-brand {
+    --tw-ring-color: color-mix(in oklab, var(--color-ink) 10%, transparent);
+  }
+
+  /* Subtle dotted texture used behind hero / section headers. */
+  .bg-dot-grid {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      color-mix(in oklab, var(--color-ink) 12%, transparent) 1px,
+      transparent 0
+    );
+    background-size: 22px 22px;
+  }
+
+  .bg-line-grid {
+    background-image: linear-gradient(
+        to right,
+        color-mix(in oklab, var(--color-ink) 5%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--color-ink) 5%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 64px 64px;
+  }
+
+  /* Placeholder shimmer for demo imagery. */
+  .bg-shimmer {
+    background-image: linear-gradient(
+      100deg,
+      var(--color-sky-soft) 0%,
+      var(--color-pink-soft) 40%,
+      var(--color-sky-soft) 80%
+    );
+    background-size: 200% 100%;
+    animation: var(--animate-shimmer);
+  }
+
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* ==========================================================================
+   COMPONENT PRIMITIVES
+   ========================================================================== */
+
+@layer components {
+  .container-page {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 80rem;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 1.75rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  /* Frosted panel used by cards, the navbar and the lightbox chrome. */
+  .glass {
+    background-color: rgb(255 255 255 / 0.72);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+  }
+
+  .glass-strong {
+    background-color: rgb(255 255 255 / 0.9);
+    backdrop-filter: blur(22px) saturate(160%);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
+  }
+
+  /* Hairline gradient border that reads as premium on white. */
+  .ring-soft {
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-ink) 8%, transparent);
+  }
+}

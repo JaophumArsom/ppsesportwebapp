@@ -1,0 +1,37 @@
+[
+  {
+    "slug": "rov",
+    "code": "GAME 01",
+    "name": "ARENA OF VALOR",
+    "fullName": "ARENA OF VALOR (RoV)",
+    "tagline": "ARENA OF VALOR",
+    "description": "รองรับนักกีฬาในสายอีสปอร์ต MOBA 5v5 สู่เวทีระดับภาค โดยวางระบบซ้อมทีมแบบมืออาชีพ วิเคราะห์เกม จัดคู่แข่งขัน และพัฒนาทักษะการเล่นทีมอย่างเป็นระบบ",
+    "accent": "pink",
+    "roles": [
+      "Dark Slayer Lane",
+      "Jungle",
+      "Middle Lane",
+      "Abyssal Dragon Lane",
+      "Support"
+    ],
+    "cover": "/images/games/rov/cover.webp",
+    "logo": "/images/games/rov/logorov.png"
+  },
+  {
+    "slug": "freefire",
+    "code": "GAME 02",
+    "name": "FREE FIRE",
+    "fullName": "FREE FIRE (FF)",
+    "tagline": "FREE FIRE",
+    "description": "สาย Battle Royale แบบทีม เน้นการควบคุมพื้นที่ การสื่อสารในทีม และความสามารถในการตัดสินใจภายใต้แรงกดดัน พร้อมการเตรียมตัวเข้าสู่การแข่งขันระดับภาคและระดับประเทศ",
+    "accent": "sky",
+    "roles": [
+      "Rusher",
+      "Support",
+      "Sniper",
+      "In-Game Leader"
+    ],
+    "cover": "/images/games/freefire/cover.jpg",
+    "logo": "/images/games/freefire/logoff.jpg"
+  }
+]
