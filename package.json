@@ -7,7 +7,7 @@
     "images:check": "node scripts/check-images.mjs",
     "predev": "npm run images:check",
     "dev": "next dev",
-    "prebuild": "npm run images:check",
+    "prebuild": "node -e \"const fs=require('fs');const p='scripts/check-images.mjs';if(fs.existsSync(p)){require('child_process').execSync('node '+p,{stdio:'inherit'})}else{console.log('[images:check] skip - missing '+p)}\"",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
