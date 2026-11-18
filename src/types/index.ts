@@ -12,7 +12,7 @@
 export type GameId = "rov" | "freefire";
 
 /** Top-level grouping used by the Members section filters. */
-export type MemberCategory = "organization" | "rov" | "freefire" | "staff";
+export type MemberCategory = "rov" | "freefire";
 
 /** ประเภทของผู้เล่นในทีม */
 export type RosterType = "starter" | "substitute" | "coach" | "manager";
@@ -33,17 +33,6 @@ export type TournamentScope =
   | "regional"
   | "national"
   | "international";
-
-/** Gallery taxonomy. */
-export type GalleryCategory =
-  | "match"
-  | "practice"
-  | "team"
-  | "event"
-  | "behind";
-
-/** Aspect ratio bucket used to build the asymmetric / masonry gallery grid. */
-export type MediaRatio = "portrait" | "square" | "landscape" | "wide";
 
 /* -------------------------------------------------------------------------- */
 /*                                   Games                                    */
@@ -104,8 +93,6 @@ export interface Member {
   socials: MemberSocial[];
   /** Sort weight inside a category. */
   order: number;
-  /** ระบุว่าเป็นข้อมูลตัวอย่าง (จะแสดงป้ายกำกับในหน้าเว็บ) */
-  demo?: boolean;
 
   /* ------------------------- Player Profile (ข้อมูลเพิ่มเติม) ------------------------ */
 
@@ -157,27 +144,6 @@ export interface Achievement {
   image: string | null;
   /** Optional short note. */
   note: string;
-  /** ระบุว่าเป็นข้อมูลตัวอย่าง (จะแสดงป้ายกำกับในหน้าเว็บ) */
-  demo?: boolean;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                                  Gallery                                   */
-/* -------------------------------------------------------------------------- */
-
-export interface GalleryItem {
-  id: string;
-  title: string;
-  caption: string;
-  category: GalleryCategory;
-  /** Optional division tag. */
-  game?: GameId;
-  /** Path of the photo. `null` renders the branded placeholder. */
-  image: string | null;
-  /** Aspect ratio bucket for the masonry layout. */
-  ratio: MediaRatio;
-  /** ระบุว่าเป็นข้อมูลตัวอย่าง (จะแสดงป้ายกำกับในหน้าเว็บ) */
-  demo?: boolean;
 }
 
 /* -------------------------------------------------------------------------- */
