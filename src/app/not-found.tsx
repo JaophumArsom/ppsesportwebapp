@@ -32,7 +32,7 @@ export default function NotFound() {
             กลับหน้าแรก
           </Button>
           <Button href="/members" size="lg" variant="outline" icon={<ArrowLeft className="h-4 w-4" />} iconPosition="left">
-            พบกับทีมงาน
+            ดูรายชื่อสมาชิก
           </Button>
         </div>
       </div>

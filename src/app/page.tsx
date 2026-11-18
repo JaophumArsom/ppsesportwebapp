@@ -16,18 +16,11 @@ export default async function HomePage() {
       <Hero
         memberCount={members.length}
         achievementCount={achievements.length}
-        tournamentCount={
-          new Set(achievements.map((a) => a.tournament)).size
-        }
         images={hero.images}
       />
-      {/* หัวข้อ ABOUT PPSESPORT ถูกนำออกแล้ว
-          หากต้องการกลับมา: เพิ่ม <AboutSection /> ระหว่าง Hero กับ GamesSection */}
       <GamesSection />
       <AchievementsSection />
       <MembersSection />
-      {/* ปุ่ม CTA "ร่วมเป็นส่วนหนึ่งของ PPSESPORT" ถูกปิดใช้งานชั่วคราว
-          หากต้องการกลับมา: เพิ่ม <CtaBand /> ท้ายสุด */}
     </>
   );
 }
