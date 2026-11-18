@@ -60,7 +60,7 @@ export function instagramHandle(value: string): string {
 /* --------------------------- การจำแนกสมาชิกในทีม --------------------------- */
 
 /**
- * เป็นโค้ชหรือผู้ควบคุมทีมหรือไม่
+ * เป็นโค้ชหรือผู้จัดการทีมหรือไม่
  * ใช้ `rosterType` เป็นหลัก ถ้ายังไม่ได้กรอกจะ fallback ไปดูจากคำในตำแหน่ง
  */
 export function isStaffMember(member: Member): boolean {

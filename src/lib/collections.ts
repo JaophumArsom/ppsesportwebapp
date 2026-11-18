@@ -123,10 +123,8 @@ export async function saveBranding(patch: Partial<Branding>): Promise<Branding> 
 /* ------------------------------ ตัวช่วย slug ------------------------------ */
 
 const slugPrefix: Record<string, string> = {
-  organization: "org",
   rov: "rov-player",
   freefire: "ff-player",
-  staff: "staff",
 };
 
 /** สร้าง slug ที่ไม่ซ้ำ สำหรับสมาชิก */
@@ -179,13 +177,13 @@ export async function createMember(input: Partial<Member>): Promise<Member> {
   const record: Member = {
     slug: makeMemberSlug(
       input.realName ?? "member",
-      input.category ?? "staff",
+      input.category ?? "rov",
       existing,
     ),
     realName: input.realName?.trim() || "ไม่ระบุชื่อ",
     inGameName: input.inGameName?.trim() || "—",
     role: input.role?.trim() || "สมาชิก",
-    category: input.category ?? "staff",
+    category: input.category ?? "rov",
     ...(input.game ? { game: input.game } : {}),
     bio: input.bio?.trim() ?? "",
     image: input.image?.trim() || null,

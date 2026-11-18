@@ -30,17 +30,7 @@ export function formatDate(iso: string): string {
   return `${day} ${month} ${year}`;
 }
 
-/** Formats an ISO date to `YYYY-MM-DD` for `<time dateTime>` attributes. */
-export function isoDate(iso: string): string {
-  return iso;
-}
-
-/** Returns the year of an ISO date string. */
+/** Returns the year of an ISO date string (local time, no timezone shift). */
 export function yearOf(iso: string): number {
   return new Date(`${iso}T00:00:00`).getFullYear();
-}
-
-/** Splits a string into characters — used by the animated headline. */
-export function splitChars(text: string): string[] {
-  return Array.from(text);
 }
