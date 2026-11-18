@@ -15,7 +15,7 @@ import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "สายเกม",
-  description: `สองสายเกมของ ${site.name} — อารีน่า ออฟ เวเลอร์ (RoV) และฟรีไฟร์ (Free Fire)`,
+  description: `สายเกมของ ${site.name} — Arena of Valor (RoV) และ Free Fire`,
 };
 
 export const dynamic = "force-dynamic";
@@ -37,7 +37,7 @@ export default async function GamesPage() {
             <span className="text-gradient-soft">แข่งขัน</span>
           </>
         }
-        description="ทุกสายเกมมีโครงสร้างทีม ตารางซ้อม และเป้าหมายการแข่งขันของตัวเอง เลือกสายเพื่อดูรายละเอียดเพิ่มเติม"
+        description="แต่ละสายเกมมีทีม ตารางซ้อม และเป้าหมายของตัวเอง เลือกสายเกมเพื่อดูรายละเอียด"
         meta={[
           { label: "สายเกม", value: String(gameList.length).padStart(2, "0") },
           {
@@ -143,7 +143,7 @@ export default async function GamesPage() {
                       {
                         icon: UserCheck,
                         value: staff.length,
-                        label: "โค้ช/ผู้ควบคุมทีม",
+                        label: "โค้ช/ผู้จัดการทีม",
                       },
                       {
                         icon: Gamepad2,

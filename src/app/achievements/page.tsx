@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { AchievementsExplorer } from "@/components/achievements/AchievementsExplorer";
 import { getAchievements } from "@/lib/collections";
+import { yearOf } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "ผลงาน",
@@ -13,7 +14,7 @@ export const dynamic = "force-dynamic";
 export default async function AchievementsPage() {
   const achievements = await getAchievements();
   const years = Array.from(
-    new Set(achievements.map((a) => new Date(a.date).getFullYear())),
+    new Set(achievements.map((a) => yearOf(a.date))),
   ).sort((a, b) => b - a);
 
   const summary = {
@@ -26,14 +27,14 @@ export default async function AchievementsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="ตู้ปั้นรางวัล"
+        eyebrow="ผลงานการแข่งขัน"
         title={
           <>
             ผลงาน{" "}
             <span className="text-gradient-soft">ของเรา</span>
           </>
         }
-        description="ผลงาน อันดับ และรางวัลการแข่งขันของ PPSESPORT กรองข้อมูลได้ตามเกมและปีที่แข่งขัน"
+        description="ผลการแข่งขัน อันดับ และรางวัลของ PPSESPORT — ดูได้ตามสายเกมและปีการแข่งขัน"
         meta={[
           { label: "ผลการแข่งขัน", value: String(summary.total).padStart(2, "0") },
           { label: "แชมป์", value: String(summary.champions).padStart(2, "0") },

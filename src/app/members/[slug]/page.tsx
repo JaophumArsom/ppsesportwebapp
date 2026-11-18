@@ -201,7 +201,7 @@ export default async function MemberProfilePage({ params }: PageProps) {
                   {member.inGameName && member.inGameName !== "—" ? (
                     <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5">
                       <span className="font-display text-[10px] font-bold uppercase tracking-[0.28em] text-ink-mute">
-                        In-game Name
+                        ชื่อในเกม
                       </span>
                       <h2 className="break-words font-display text-[clamp(1.5rem,3.8vw,2.35rem)] font-extrabold leading-tight tracking-[-0.02em] text-gradient-soft">
                         {member.inGameName}
@@ -271,14 +271,14 @@ export default async function MemberProfilePage({ params }: PageProps) {
           <div className="container-page">
             <Reveal>
               <SectionHeading
-                eyebrow="Digital Archive"
+                eyebrow="ผลงานการแข่งขัน"
                 title={
                   <>
                     ผลการแข่งขันของ{" "}
                     <span className="text-gradient-soft">{member.inGameName !== "—" ? member.inGameName : member.realName}</span>
                   </>
                 }
-                description="ผลงานและรางวัลที่สังกัดคว้าได้ในสายเกมนี้"
+                description="ผลงานที่นักกีฬาทำได้ในสายเกมนี้"
                 align="left"
               />
             </Reveal>

@@ -8,7 +8,7 @@ import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "สมาชิก",
-  description: `ผู้บริหาร นักกีฬา โค้ช ผู้จัดการทีม และทีมงานของ ${site.name}`,
+  description: `นักกีฬา โค้ช ผู้จัดการทีม และทีมงานของ ${site.name}`,
 };
 
 export const dynamic = "force-dynamic";
@@ -26,7 +26,7 @@ export default async function MembersPage() {
             <span className="text-gradient-soft">ทีมของเรา</span>
           </>
         }
-        description="ทุกคนในสังกัด — ตั้งแต่ผู้บริหาร นักกีฬา โค้ช ผู้จัดการทีม"
+        description="ทุกคนในสังกัด — นักกีฬา โค้ช ผู้จัดการทีม"
         meta={[
           { label: "สมาชิกทั้งหมด", value: String(members.length).padStart(2, "0") },
           {

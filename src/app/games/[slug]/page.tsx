@@ -5,7 +5,6 @@ import {
   ArrowLeft,
   ArrowRight,
   Gamepad2,
-  Quote,
   Target,
   Trophy,
   UserCheck,
@@ -62,7 +61,7 @@ export default async function GameDetailPage({ params }: PageProps) {
 
   const roster = (await getMembers()).filter((m) => m.game === game.slug);
 
-  // แยกตามประเภทผู้เล่น: นักกีฬาในสนาม กับ โค้ช/ผู้ควบคุมทีม
+  // แยกตามประเภทผู้เล่น: นักกีฬาในสนาม กับ โค้ช/ผู้จัดการทีม
   const players = roster.filter((member) => isPlayerMember(member));
   const support = roster.filter((member) => isStaffMember(member));
   const results = await getAchievementsByGame(game.slug);
@@ -123,7 +122,7 @@ export default async function GameDetailPage({ params }: PageProps) {
                 {[
                   { icon: Users, label: "สมาชิก", value: roster.length },
                   { icon: Target, label: "นักกีฬา", value: players.length },
-                  { icon: UserCheck, label: "โค้ช/ผู้ควบคุมทีม", value: support.length },
+                  { icon: UserCheck, label: "โค้ช/ผู้จัดการทีม", value: support.length },
                   { icon: Trophy, label: "ผลแข่งขัน", value: results.length },
                 ].map((stat) => (
                   <div key={stat.label}>
@@ -220,7 +219,7 @@ export default async function GameDetailPage({ params }: PageProps) {
             <Reveal delay={0.08}>
               <div className="mt-12">
                 <h3 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-ink-mute">
-                  โค้ชและผู้ควบคุมทีม
+                  โค้ชและผู้จัดการทีม
                 </h3>
                 <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {support.map((member) => (
@@ -266,11 +265,11 @@ export default async function GameDetailPage({ params }: PageProps) {
               eyebrow="ผลการแข่งขัน"
               title={
                 <>
-                  ตู้ปั้นรางวัล{" "}
+                  ผลงาน{" "}
                   <span className="text-gradient-soft">{game.name}</span>
                 </>
               }
-              description="ผลงานการแข่งขันของสายเกมนี้"
+              description="ผลการแข่งขันของสายเกมนี้"
             />
           </Reveal>
 
