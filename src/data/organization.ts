@@ -4,21 +4,18 @@ import type { Organisation } from "@/types";
  * ============================================================================
  *  ORGANISATION DATA
  * ----------------------------------------------------------------------------
- *  ✏️  The copy below is intentionally written as **editable placeholder
- *  content**. Replace every paragraph with the approved story of PPSESPORT
- *  before publishing the site.
+ *  ข้อมูลสังกัดที่ใช้แสดงบนเว็บไซต์ — แก้ไขได้ที่นี่หรือผ่านหน้า Admin
  * ============================================================================
  */
 
 export const organisation: Organisation = {
-  name: "PPS Esport",
+  name: "PPSESPORT",
   school: "โรงเรียนพิจิตรพิทยาคม",
-  tagline: "",
+  tagline: "สังกัดอีสปอร์ตประจำโรงเรียน",
 
   intro: [
-    "PPSESPORT คือสังกัดอีสปอร์ตของโรงเรียนพิจิตรพิทยาม ก่อตั้งขึ้นเพื่อเปิดพื้นที่ให้นักเรียนได้พัฒนาทักษะการแข่งขันเกมอีสปอร์ตอย่างเป็นระบบ ภายใต้การดูแลของโรงเรียนและคณะผู้จัดการทีม",
-    "เราคิดว่าอีสปอร์ตไม่ใช่แค่การเล่นเกม แต่คือการเรียนรู้การทำงานเป็นทีม การคิดเชิงวิเคราะห์ การควบคุมอารมณ์ และการสร้างวินัยในการพัฒนาตนเอง",
-    "[PLACEHOLDER] ส่วนนี้เป็นเนื้อหาตัวอย่างสำหรับการออกแบบ — โปรดแทนที่ด้วยประวัติการก่อตั้งจริงของสังกัด PPSESPORT",
+    "PPSESPORT คือสังกัดอีสปอร์ตของโรงเรียนพิจิตรพิทยาคม ที่เปิดพื้นที่ให้นักเรียนพัฒนาทักษะการแข่งขันอย่างเป็นระบบ ภายใต้การดูแลของโรงเรียนและทีมงานของสังกัด",
+    "เราเชื่อว่าอีสปอร์ตไม่ใช่แค่การเล่นเกม แต่คือการเรียนรู้การทำงานเป็นทีม การวิเคราะห์สถานการณ์ การควบคุมอารมณ์ และการพัฒนาตัวเองอย่างต่อเนื่อง",
   ],
 
   pillars: [
@@ -45,39 +42,26 @@ export const organisation: Organisation = {
   ],
 
   stats: [
-    { label: "Divisions", value: "02", hint: "RoV · Free Fire" },
-    { label: "Roster", value: "24", hint: "ผู้เล่นและทีมงาน (ตัวอย่าง)" },
-    { label: "Tournaments", value: "10", hint: "รายการผลงาน (ตัวอย่าง)" },
-    { label: "Founded", value: "—", hint: "กรุณาระบุปีที่ก่อตั้ง" },
+    { label: "สายเกม", value: "02", hint: "RoV · Free Fire" },
+    { label: "สมาชิก", value: "—", hint: "อัปเดตจากข้อมูลจริง" },
+    { label: "ผลงาน", value: "—", hint: "อัปเดตจากข้อมูลจริง" },
+    { label: "ปีที่ก่อตั้ง", value: "—", hint: "อยู่ระหว่างการระบุ" },
   ],
 
   contact: [
     {
-      label: "Email",
-      value: "ppsesport@example.com",
-      href: "mailto:ppsesport@example.com",
-      icon: "mail",
+      label: "Instagram",
+      value: "@ppsesportsofficial",
+      href: "https://www.instagram.com/ppsesportsofficial",
+      icon: "instagram",
     },
     {
-      label: "Facebook",
-      value: "PPSESPORT (placeholder)",
-      href: "https://facebook.com/",
-      icon: "facebook",
-    },
-    {
-      label: "YouTube",
-      value: "PPSESPORT (placeholder)",
-      href: "https://youtube.com/",
-      icon: "youtube",
-    },
-    {
-      label: "Location",
+      label: "ที่ตั้ง",
       value: "โรงเรียนพิจิตรพิทยาคม, จังหวัดพิจิตร",
       href: "#",
       icon: "map",
     },
   ],
 
-  foundationNote:
-    "[PLACEHOLDER] ก่อตั้งเมื่อ และด้วยเหตุผลใด — กรุณาเติมข้อมูลประวัติจริงของสังกัดที่นี่",
+  foundationNote: "สังกัดอีสปอร์ตของโรงเรียนพิจิตรพิทยาคม",
 };

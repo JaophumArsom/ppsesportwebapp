@@ -13,8 +13,3 @@ export const games: { slug: GameId; name: string }[] = [
   { slug: "rov", name: "ARENA OF VALOR" },
   { slug: "freefire", name: "FREE FIRE" },
 ];
-
-export const gameMap: Record<GameId, string> = {
-  rov: "ARENA OF VALOR (RoV)",
-  freefire: "FREE FIRE (FF)",
-};

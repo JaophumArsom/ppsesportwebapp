@@ -1,5 +1,3 @@
-import type { GameId } from "@/types";
-
 /**
  * ============================================================================
  *  SITE / NAVIGATION / SEO CONFIG
@@ -10,16 +8,18 @@ import type { GameId } from "@/types";
 
 export const site = {
   name: "PPSESPORT",
-  shortName: "PPS",
   school: "Phichit Pittayakom School",
   schoolThai: "โรงเรียนพิจิตรพิทยาคม",
-  tagline: "PPS Esports GEN 1",
+  tagline: "จากห้องเรียนสู่สนามแข่ง",
   taglineThai: "ปีการศึกษา 2569",
   description:
-    "PPSESPORT คือสังกัดอีสปอร์ตของโรงเรียนพิจิตรพิทยาคม จัดทำเว็บไซต์เพื่อนำเสนอองค์กร ผลงานการแข่งขัน นักกีฬา ทีมงาน และบุคคลที่มีส่วนเกี่ยวข้อง",
+    "PPSESPORT เป็นสังกัดอีสปอร์ตของโรงเรียนพิจิตรพิทยาคม รวบรวมรายชื่อนักกีฬา ทีมงาน และผลงานการแข่งขันของสังกัด",
   locale: "th_TH",
   url: "https://ppsesport.example.com",
 } as const;
+
+/** โลโก้ทีม PPSESPORT — ค่าตกลงสำหรับจุดที่ยังอ่านข้อมูลจาก Admin ไม่ได้ */
+export const teamLogoPath = "/images/branding/team-logo.png";
 
 export interface NavItem {
   label: string;
@@ -28,11 +28,7 @@ export interface NavItem {
   external?: boolean;
 }
 
-/**
- * เมนูหลักของเว็บไซต์ (ภาษาไทย)
- * หมายเหตุ: หมวด "About Us" ถูกนำออกแล้ว — หากต้องการกลับมา
- * ให้เพิ่ม { label: "เกี่ยวกับเรา", href: "/about" } ในตรงนี้
- */
+/** เมนูหลักของเว็บไซต์ */
 export const navigation: NavItem[] = [
   { label: "หน้าแรก", href: "/" },
   { label: "สายเกม", href: "/games" },
@@ -62,10 +58,8 @@ export const socials: NavItem[] = [
 ];
 
 /**
- * ปุ่ม Call-to-action ของเว็บไซต์
- *
- * ⚠️  ปิดใช้งานชั่วคราว (ยังไม่ลบโค้ด) — เปิดใช้งานอีกครั้งโดยเปลี่ยน
- *     SHOW_CONTACT_CTA เป็น true
+ * ปุ่มติดต่อในเมนู — เปิดใช้งานเมื่อมีช่องทางติดต่อจริง
+ * ตั้งค่าใน Navbar ผ่าน SHOW_CONTACT_CTA
  */
 export const SHOW_CONTACT_CTA = false;
 
@@ -74,20 +68,3 @@ export const cta = {
   href: "mailto:ppsesport@example.com",
   sublabel: "ppsesport@example.com",
 } as const;
-
-/** อีเมลติดต่อที่แสดงใน Footer */
-export const contactEmail = "";
-
-/** สี accent ของแต่ละสายเกม (เก็บไว้เผื่อใช้ต่อ) */
-export const gameAccent: Record<GameId, { text: string; bg: string; ring: string }> = {
-  rov: {
-    text: "text-[#A8447A]",
-    bg: "bg-[#FDEBF4]",
-    ring: "ring-[#F4BFD5]",
-  },
-  freefire: {
-    text: "text-[#1B6E96]",
-    bg: "bg-[#E6F4FC]",
-    ring: "ring-[#A9DDF5]",
-  },
-};

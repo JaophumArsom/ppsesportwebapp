@@ -4,7 +4,7 @@ import type { GameId, MemberCategory, RosterType } from "@/types";
  * ============================================================================
  *  MEMBER META — ค่าคงที่ที่เกี่ยวกับสมาชิก (ไม่มีข้อมูลส่วนตัว)
  * ----------------------------------------------------------------------------
- *  แยกจากข้อมูลสมาชิกจริง (ดู src/lib/members-store.ts) เพื่อให้
+ *  แยกจากข้อมูลสมาชิกจริง (อ่านผ่าน src/lib/collections.ts) เพื่อให้
  *  Component ฝั่ง client นำไปใช้ได้โดยไม่ดึงข้อมูลทั้งหมดเข้ามา
  * ============================================================================
  */
@@ -14,17 +14,13 @@ export const memberCategories: {
   label: string;
   short: string;
 }[] = [
-  { id: "organization", label: "ผู้บริหาร", short: "ORG" },
   { id: "rov", label: "ทีม RoV", short: "ROV" },
   { id: "freefire", label: "ทีม Free Fire", short: "FF" },
-  { id: "staff", label: "ทีมงานสนับสนุน", short: "SUP" },
 ];
 
 export const categoryLabel: Record<MemberCategory, string> = {
-  organization: "ผู้บริหาร",
   rov: "ทีม RoV",
   freefire: "ทีม Free Fire",
-  staff: "ทีมงานสนับสนุน",
 };
 
 /** ตัวเลือกสายเกมสำหรับฟอร์มในหน้า Admin */
@@ -39,7 +35,7 @@ export const rosterTypeLabel: Record<RosterType, string> = {
   starter: "ผู้เล่นตัวจริง",
   substitute: "ผู้เล่นตัวสำรอง",
   coach: "โค้ช",
-  manager: "ผู้ควบคุมทีม",
+  manager: "ผู้จัดการทีม",
 };
 
 /** โทนสีของป้ายแต่ละประเภท (ใช้กับการ์ดสมาชิก) */
@@ -54,5 +50,5 @@ export const rosterTypeOptions: { id: RosterType; label: string }[] = [
   { id: "starter", label: "ผู้เล่นตัวจริง" },
   { id: "substitute", label: "ผู้เล่นตัวสำรอง" },
   { id: "coach", label: "โค้ช" },
-  { id: "manager", label: "ผู้ควบคุมทีม" },
+  { id: "manager", label: "ผู้จัดการทีม" },
 ];

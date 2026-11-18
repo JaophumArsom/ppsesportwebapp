@@ -51,19 +51,3 @@ export const scopeLabel: Record<TournamentScope, string> = {
   international: "ระดับนานาชาติ",
 };
 
-/** ตัวเลือกสำหรับฟอร์มในหน้า Admin */
-export const tierOptions: { id: RankTier; label: string }[] = [
-  { id: "champion", label: "แชมป์" },
-  { id: "runner-up", label: "รองชนะเลิศ" },
-  { id: "third", label: "อันดับ 3" },
-  { id: "top8", label: "อันดับ 8" },
-  { id: "qualify", label: "เข้ารอบ" },
-];
-
-export const scopeOptions: { id: TournamentScope; label: string }[] = [
-  { id: "school", label: "ระดับโรงเรียน" },
-  { id: "province", label: "ระดับจังหวัด" },
-  { id: "regional", label: "ระดับภาค" },
-  { id: "national", label: "ระดับประเทศ" },
-  { id: "international", label: "ระดับนานาชาติ" },
-];
