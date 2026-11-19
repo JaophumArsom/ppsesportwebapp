@@ -7,11 +7,13 @@
     "images:check": "node scripts/check-images.mjs",
     "predev": "npm run images:check",
     "dev": "next dev",
-    "prebuild": "node -e \"const fs=require('fs');const p='scripts/check-images.mjs';if(fs.existsSync(p)){require('child_process').execSync('node '+p,{stdio:'inherit'})}else{console.log('[images:check] skip - missing '+p)}\"",
+    "prebuild": "node -e \"const fs=require('fs');const p='scripts/check-images.mjs';if(fs.existsSync(p)){require('child_process').execSync('node '+p,{stdio:'inherit'})}else{console.log('[images:check] ข้ามการตรวจ - ไม่พบ '+p)}\"",
     "build": "next build",
     "start": "next start",
+    "clean": "node -e \"const fs=require('node:fs');for(const p of ['.next','tsconfig.tsbuildinfo']){fs.rmSync(p,{recursive:true,force:true})}console.log('[clean] ลบ .next และ tsconfig.tsbuildinfo แล้ว')\"",
+    "check": "npm run lint && npm run typecheck && npm run build",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
     "framer-motion": "^14.12.0",
