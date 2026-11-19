@@ -287,7 +287,7 @@ export function BrandingManager() {
 
           <span className="min-w-0 flex-1">
             <span className="block truncate font-display text-[15px] font-extrabold text-ink">
-              {form.teamName || "PPSESPORT"}
+              {form.teamName || "PPS Esports"}
             </span>
             <span className="block truncate text-[9px] font-semibold uppercase tracking-[0.24em] text-ink-mute">
               {form.schoolName || "โรงเรียนพิจิตรพิทยาคม"}

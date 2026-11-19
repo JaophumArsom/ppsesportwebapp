@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${name} — ${site.name}`,
-    description: `${member.realName} · ${member.role} — โปรไฟล์นักกีฬา PPSESPORT`,
+    description: `${member.realName} · ${member.role} — โปรไฟล์นักกีฬา PPS Esports`,
   };
 }
 

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   description: site.description,
   keywords: [
-    "PPSESPORT",
+    "PPS Esports",
     "Phichit Pittayakom School",
     "โรงเรียนพิจิตรพิทยาคม",
     "อีสปอร์ต",

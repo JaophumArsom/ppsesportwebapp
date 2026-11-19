@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
  * ----------------------------------------------------------------------------
  *  โครงสร้างโลโก้ในหัวเว็บไซต์:
  *
- *    [โลโก้โรงเรียน]  [โลโก้ทีม]  │  PPSESPORT
+ *    [โลโก้โรงเรียน]  [โลโก้ทีม]  │  PPS Esports
  *                              │  ชื่อโรงเรียน
  *
  *  • โลโก้ทีมใช้รูปจริงของสังกัด (คลิกแล้วกลับหน้าแรก)
@@ -49,7 +49,7 @@ export function Logo({
 }: LogoProps) {
   const schoolLogo = branding?.schoolLogo ?? null;
   const teamLogo = branding?.teamLogo ?? null;
-  const teamName = branding?.teamName || "PPSESPORT";
+  const teamName = branding?.teamName || "PPS Esports";
   const schoolName = branding?.schoolName || "โรงเรียนพิจิตรพิทยาคม";
 
   const content = (
@@ -87,7 +87,8 @@ export function Logo({
               inverted ? "text-white" : "text-ink",
             )}
           >
-            PPS<span className="text-gradient-soft">ESPORT</span>
+            PPS{" "}
+            <span className="text-gradient-soft">Esports</span>
           </span>
           <span
             className={cn(

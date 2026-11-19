@@ -8,7 +8,7 @@ import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "สมาชิก",
-  description: `นักกีฬา โค้ช ผู้จัดการทีม และทีมงานของ ${site.name}`,
+  description: `นักกีฬา โค้ช ผู้จัดการทีม ${site.name}`,
 };
 
 export const dynamic = "force-dynamic";

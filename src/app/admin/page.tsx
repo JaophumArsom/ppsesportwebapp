@@ -4,7 +4,7 @@ import { AdminPanel } from "@/components/admin/AdminPanel";
 
 export const metadata: Metadata = {
   title: "จัดการข้อมูล",
-  description: "แผงควบคุมข้อมูลทั้งหมดของเว็บไซต์ PPSESPORT",
+  description: "แผงควบคุมข้อมูลทั้งหมดของเว็บไซต์ PPS Esports",
   robots: { index: false, follow: false },
 };
 

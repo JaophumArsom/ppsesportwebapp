@@ -6,7 +6,7 @@ import { yearOf } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "ผลงาน",
-  description: "ผลงาน อันดับ และรางวัลการแข่งขันของ PPSESPORT",
+  description: "ผลงาน อันดับ และรางวัลการแข่งขันของ PPS Esports",
 };
 
 export const dynamic = "force-dynamic";
@@ -34,7 +34,7 @@ export default async function AchievementsPage() {
             <span className="text-gradient-soft">ของเรา</span>
           </>
         }
-        description="ผลการแข่งขัน อันดับ และรางวัลของ PPSESPORT — ดูได้ตามสายเกมและปีการแข่งขัน"
+        description="ผลการแข่งขัน อันดับ และรางวัลของ PPS Esports — ดูได้ตามสายเกมและปีการแข่งขัน"
         meta={[
           { label: "ผลการแข่งขัน", value: String(summary.total).padStart(2, "0") },
           { label: "แชมป์", value: String(summary.champions).padStart(2, "0") },
@@ -44,7 +44,7 @@ export default async function AchievementsPage() {
 
       <section className="bg-white py-16 lg:py-20">
         <div className="container-page">
-          <h2 className="sr-only">ผลการแข่งขันทั้งหมดของ PPSESPORT</h2>
+          <h2 className="sr-only">ผลการแข่งขันทั้งหมดของ PPS Esports</h2>
           <AchievementsExplorer achievements={achievements} years={years} />
         </div>
       </section>

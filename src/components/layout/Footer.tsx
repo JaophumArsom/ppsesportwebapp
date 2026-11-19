@@ -49,7 +49,7 @@ export function Footer({
             <Logo branding={branding} />
             <p className="max-w-sm text-sm leading-relaxed text-ink-mute">
               {site.schoolThai} — {organisation.tagline} รายชื่อนักกีฬา
-              ผลงานการแข่งขัน และทีมงานของ PPSESPORT
+              ผลงานการแข่งขัน PPS Esports
             </p>
             <div className="flex flex-wrap gap-2">
               {socials.map((social) => {

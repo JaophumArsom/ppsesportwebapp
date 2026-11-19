@@ -104,7 +104,7 @@ export interface Branding {
 export const defaultBranding: Branding = {
   schoolLogo: null,
   teamLogo: null,
-  teamName: "PPSESPORT",
+  teamName: "PPS Esports",
   schoolName: "โรงเรียนพิจิตรพิทยาคม",
   tagline: "",
 };

@@ -2,7 +2,7 @@
   "name": "ppsesport-webapp",
   "version": "1.0.0",
   "private": true,
-  "description": "PPSESPORT — Official Esports Portfolio Website of Phichit Pittayakom School",
+  "description": "PPS Esports — Official Esports Portfolio Website of Phichit Pittayakom School",
   "scripts": {
     "images:check": "node scripts/check-images.mjs",
     "predev": "npm run images:check",

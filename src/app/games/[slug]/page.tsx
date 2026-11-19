@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: game.fullName,
     description: `${game.fullName} — ${game.tagline}. ${game.description}`,
     openGraph: {
-      title: `${game.fullName} · PPSESPORT`,
+      title: `${game.fullName} · PPS Esports`,
       description: game.description,
     },
   };

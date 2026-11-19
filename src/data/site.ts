@@ -7,18 +7,18 @@
  */
 
 export const site = {
-  name: "PPSESPORT",
+  name: "PPS Esports",
   school: "Phichit Pittayakom School",
   schoolThai: "โรงเรียนพิจิตรพิทยาคม",
   tagline: "จากห้องเรียนสู่สนามแข่ง",
   taglineThai: "ปีการศึกษา 2569",
   description:
-    "PPSESPORT เป็นสังกัดอีสปอร์ตของโรงเรียนพิจิตรพิทยาคม รวบรวมรายชื่อนักกีฬา ทีมงาน และผลงานการแข่งขันของสังกัด",
+    "PPS Esports เป็นสังกัดอีสปอร์ตของโรงเรียนพิจิตรพิทยาคม รวบรวมรายชื่อนักกีฬา ทีมงาน และผลงานการแข่งขันของสังกัด",
   locale: "th_TH",
   url: "https://ppsesport.example.com",
 } as const;
 
-/** โลโก้ทีม PPSESPORT — ค่าตกลงสำหรับจุดที่ยังอ่านข้อมูลจาก Admin ไม่ได้ */
+/** โลโก้ทีม PPS Esports — ค่าตกลงสำหรับจุดที่ยังอ่านข้อมูลจาก Admin ไม่ได้ */
 export const teamLogoPath = "/images/branding/team-logo.png";
 
 export interface NavItem {

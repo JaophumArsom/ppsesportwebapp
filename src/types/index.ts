@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- *  PPSESPORT — Central type definitions
+ *  PPS Esports — Central type definitions
  * ----------------------------------------------------------------------------
  *  Every piece of content that the CMS / future Supabase backend must provide
  *  is modelled here. UI components never hard-code content — they always read

@@ -1,6 +1,6 @@
-# PPSESPORT — Official Esports Portfolio Website
+# PPS Esports — Official Esports Portfolio Website
 
-เว็บไซต์ Showcase อย่างเป็นทางการของ **PPSESPORT** สังกัดอีสปอร์ตของ
+เว็บไซต์ Showcase อย่างเป็นทางการของ **PPS Esports** สังกัดอีสปอร์ตของ
 **โรงเรียนพิจิตรพิทยาคม (Phichit Pittayakom School)**
 
 > **BEYOND THE GAME, BEYOND THE LIMITS.**
@@ -26,7 +26,7 @@
 
 ## ภาพรวมโปรเจกต์
 
-PPSESPORT เป็นเว็บไซต์แบบ **Portfolio / Showcase** ที่รวบรวมข้อมูลทั้งหมดของสังกัดไว้ในที่เดียว
+PPS Esports เป็นเว็บไซต์แบบ **Portfolio / Showcase** ที่รวบรวมข้อมูลทั้งหมดของสังกัดไว้ในที่เดียว
 ได้แก่ ประวัติองค์กร ผลงานการแข่งขัน รายชื่อนักกีฬาและทีมงาน ภาพบรรยากาศการแข่งขัน
 และช่องทางติดต่อ
 
@@ -306,7 +306,7 @@ ppsesportwebapp/
 
 ```ts
 export const site = {
-  name: "PPS ESPORT",
+  name: "PPS Esports",
   school: "Phichit Pittayakom School",
   tagline: "",
   url: "https://your-domain.com",   // ← เปลี่ยนเป็นโดเมนจริง (ใช้กับ SEO)
@@ -639,5 +639,5 @@ npm run start     # ฟังที่พอร์ต 3000
 
 ## License
 
-© 2026 PPSESPORT — โรงเรียนพิจิตรพิทยาคม
+© 2026 PPS Esports — โรงเรียนพิจิตรพิทยาคม
 ออกแบบและพัฒนาเพื่อการนำเสนอองค์กรอีสปอร์ตของสังกัด

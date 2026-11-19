@@ -3,7 +3,7 @@ import type { SVGProps } from "react";
 /**
  * Social brand marks.
  * Lucide v1 removed third-party brand icons, so the four channels used by
- * PPSESPORT are drawn here as lightweight inline SVG components.
+ * PPS Esports are drawn here as lightweight inline SVG components.
  */
 
 type IconProps = SVGProps<SVGSVGElement>;
