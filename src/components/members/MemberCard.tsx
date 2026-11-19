@@ -18,7 +18,7 @@ export function MemberCard({
     <Link
       href={`/members/${member.slug}`}
       className={cn(
-        "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-ink/[0.08] bg-white p-5 text-left shadow-soft transition-all duration-400 hover:-translate-y-1.5 hover:border-ink/15 hover:shadow-lift",
+        "sheen group relative flex h-full flex-col overflow-hidden rounded-2xl border border-ink/[0.08] bg-white p-5 text-left shadow-soft transition-all duration-400 hover:-translate-y-1.5 hover:border-ink/15 hover:shadow-lift",
         className,
       )}
     >

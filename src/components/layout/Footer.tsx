@@ -48,8 +48,8 @@ export function Footer({
           <div className="flex flex-col gap-5">
             <Logo branding={branding} />
             <p className="max-w-sm text-sm leading-relaxed text-ink-mute">
-              {site.school} — {organisation.tagline} ศูนย์รวมข้อมูล นักกีฬา
-              ผลงานการแข่งขัน และทีมงานของสังกัด PPSESPORT
+              {site.schoolThai} — {organisation.tagline} รายชื่อนักกีฬา
+              ผลงานการแข่งขัน และทีมงานของ PPSESPORT
             </p>
             <div className="flex flex-wrap gap-2">
               {socials.map((social) => {
@@ -118,8 +118,8 @@ export function Footer({
             © {year} {site.name}. {site.schoolThai} — สงวนลิขสิทธิ์
           </p>
           <p className="text-[12.5px] text-ink-mute">
-            Designed &amp; built for{" "}
-            <span className="font-semibold text-ink-soft">{site.school}</span>
+            ทำเพื่อ{" "}
+            <span className="font-semibold text-ink-soft">{site.schoolThai}</span>
           </p>
         </div>
       </div>

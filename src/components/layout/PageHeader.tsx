@@ -34,6 +34,10 @@ export function PageHeader({
         className="pointer-events-none absolute inset-0 -z-10 bg-dot-grid opacity-30 [mask-image:radial-gradient(65%_60%_at_40%_20%,black,transparent)]"
         aria-hidden="true"
       />
+      <div
+        className="accent-line pointer-events-none absolute inset-x-0 top-0 -z-10 h-px opacity-70"
+        aria-hidden="true"
+      />
 
       <div className="container-page">
         <Reveal>

@@ -20,14 +20,14 @@ export async function MembersSection() {
       <div className="container-page">
         <Reveal>
           <SectionHeading
-            eyebrow="Team members"
+            eyebrow="สมาชิกของเรา"
             title={
               <>
                 สมาชิก{" "}
                 <span className="text-gradient-soft">ภายในทีม</span>
               </>
             }
-            description="ผู้บริหาร นักกีฬา โค้ช ผู้จัดการทีม และทีมงานที่ทำให้ทุกการแข่งขันเกิดขึ้นได้"
+            description="นักกีฬา โค้ช และผู้จัดการทีมที่อยู่เบื้องหลังทุกการแข่งขัน"
             action={
               <Link
                 href="/members"

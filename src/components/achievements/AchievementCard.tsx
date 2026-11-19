@@ -17,7 +17,7 @@ export function AchievementCard({
 
   return (
     <article
-      className={`group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/[0.08] bg-white shadow-soft transition-all duration-400 hover:-translate-y-1 hover:border-ink/15 hover:shadow-lift ${className}`}
+      className={`sheen group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/[0.08] bg-white shadow-soft transition-all duration-400 hover:-translate-y-1 hover:border-ink/15 hover:shadow-lift ${className}`}
     >
       <div className="relative">
         <Media

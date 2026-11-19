@@ -61,7 +61,7 @@ export function MembersExplorer({ members }: { members: Member[] }) {
   }, [members, filter, query]);
 
   const filters: { id: Filter; label: string }[] = [
-    { id: "all", label: "All" },
+    { id: "all", label: "ทั้งหมด" },
     ...memberCategories.map((c) => ({ id: c.id as Filter, label: c.label })),
   ];
 

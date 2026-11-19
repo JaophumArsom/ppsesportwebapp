@@ -12,6 +12,8 @@
 | `next.config.ts` → `outputFileTracingIncludes` | ให้แน่ใจว่าโฟลเดอร์ `data/` **ถูกแพ็กไปบน Vercel** (โค้ดอ่านไฟล์ด้วย `fs.readFile` ซึ่ง Next.js มักหาไฟล์ไม่เจอเอง) |
 | `package.json` → `engines.node: ">=20.9.0"` | ให้ Vercel ใช้ Node เวอร์ชันที่ถูกต้อง |
 | `scripts/check-images.mjs` (รันก่อน build) | กันภาพพังจากชื่อไฟล์ตัวพิมพ์ใหญ่/เล็ก ตอน deploy บน Linux |
+| `.gitattributes` (LF ทั้งโปรเจกต์) | ไฟล์ที่แก้จาก Windows/macOS จะไม่เกิด diff รกทั้งไฟล์ |
+| `.nvmrc` = `22` + `npm run clean` / `npm run check` | รันบน macOS/Windows ได้ผลเหมือนกัน ใช้ Node เวอร์ชันเดียวกัน |
 
 ---
 
@@ -50,7 +52,10 @@
 ### 1.2 ผูก repo เข้ากับเครื่องตัวเอง + push
 
 ```bash
-cd C:\Users\witch\OneDrive\Desktop\project\ppsesportwebapp
+# cd เข้าโฟลเดอร์โปรเจกต์ (ตัวอย่าง)
+# Windows : cd C:\Users\<ชื่อ>\Desktop\project\ppsesportwebapp
+# macOS   : cd ~/Documents/ppsesportwebapp
+cd ~/Documents/ppsesportwebapp
 
 # เพิ่ม remote (แทน <ชื่อuser> / <ชื่อrepo> ด้วยของจริง)
 git remote add origin https://github.com/<ชื่อuser>/ppsesportwebapp.git
@@ -61,6 +66,11 @@ git branch -M main
 # ส่งขึ้น GitHub
 git push -u origin main
 ```
+
+> 💡 **macOS** — ใช้คำสั่งเดียวกันทั้งหมด (ไม่ต้องมี `.cmd`)
+> ถ้ารันบนเครื่อง Mac ครั้งแรก ดูวิธีติดตั้ง Node เพิ่มเติมได้ที่ `README.md` หัวข้อ
+> **"5. รันบน macOS (Local)"**
+> Git บน macOS ใช้ **Keychain** เก็บ credential อัตโนมัติ (ไม่ต้องพิมพ์ token ซ้ำ)
 
 > ถ้า GitHub ถามรหัสผ่าน → ใช้ **Personal Access Token** (ไม่ใช่รหัสผ่านบัญชี) สร้างที่
 > GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
@@ -178,6 +188,10 @@ git push
 | รูปไม่ขึ้นบน production แต่ขึ้นบนเครื่อง | ตัวพิมพ์ชื่อไฟล์ต่างกัน | `npm run images:check` |
 | อยาก rollback | — | Vercel → Deployments → เมนู `...` → **Promote to Production** |
 | อยาก preview ก่อน merge | — | เปิด Pull Request ใน GitHub → Vercel จะสร้าง Preview URL ให้อัตโนมัติ |
+| **บน Mac** เจอ error native module (`sharp`, `lightningcss`, `@next/swc`) | คัดลอก `node_modules` ที่ติดตั้งบน Windows มาด้วย | `rm -rf node_modules .next && npm install` |
+| **บน Mac** พอร์ต 3000 ถูกใช้ | process เก่าค้าง | `lsof -ti:3000 \| xargs kill -9` |
+| **บน Mac** build ค้าง/ช้าเป็นนาที | `next/font/google` โหลดฟอนต์ไม่ได้ | ต่ออินเทอร์เน็ต แล้ว `npm run clean && npm run build` |
+| ไฟล์ขึ้น `LF will be replaced by CRLF` | ยังไม่ได้ใช้ `.gitattributes` ใหม่ | `git add --renormalize .` แล้ว commit |
 
 ---
 

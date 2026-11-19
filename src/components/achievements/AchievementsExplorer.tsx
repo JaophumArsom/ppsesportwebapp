@@ -6,7 +6,7 @@ import { Filter, X } from "lucide-react";
 import { AchievementCard } from "@/components/achievements/AchievementCard";
 
 import type { Achievement, GameId } from "@/types";
-import { cn } from "@/lib/utils";
+import { cn, yearOf } from "@/lib/utils";
 
 type GameFilter = "all" | GameId;
 
@@ -31,7 +31,7 @@ export function AchievementsExplorer({
       achievements.filter((item) => {
         const matchGame = game === "all" || item.game === game;
         const matchYear =
-          year === "all" || new Date(`${item.date}T00:00:00`).getFullYear() === year;
+          year === "all" || yearOf(item.date) === year;
         return matchGame && matchYear;
       }),
     [achievements, game, year],

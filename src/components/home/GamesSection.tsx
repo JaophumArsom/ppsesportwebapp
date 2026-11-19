@@ -30,14 +30,13 @@ export async function GamesSection() {
       <div className="container-page">
         <Reveal>
           <SectionHeading
-            eyebrow="Game type"
+            eyebrow="สายเกมของเรา"
             title={
               <>
                 แต่ละ{" "}
                 <span className="text-gradient-soft">สายเกม</span>
               </>
             }
-            description=""
             action={
               <Link
                 href="/games"

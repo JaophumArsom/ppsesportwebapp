@@ -2,7 +2,6 @@
 
 import { motion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
-import { cn } from "@/lib/utils";
 
 /**
  * Scroll-triggered reveal wrapper. Elements fade + rise once when they enter
@@ -110,40 +109,3 @@ export function RevealItem({
   );
 }
 
-/** Animated word-by-word headline. */
-export function AnimatedWords({
-  text,
-  className,
-  wordClassName,
-  delay = 0,
-  stagger = 0.07,
-}: {
-  text: string;
-  className?: string;
-  wordClassName?: string;
-  delay?: number;
-  stagger?: number;
-}) {
-  const words = text.split(" ");
-
-  return (
-    <span className={cn("inline-flex flex-wrap justify-center gap-x-[0.3em]", className)}>
-      {words.map((word, index) => (
-        <span key={`${word}-${index}`} className="inline-flex overflow-hidden py-[0.02em]">
-          <motion.span
-            className={cn("inline-block", wordClassName)}
-            initial={{ y: "110%", opacity: 0 }}
-            animate={{ y: "0%", opacity: 1 }}
-            transition={{
-              duration: 0.8,
-              delay: delay + index * stagger,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-          >
-            {word}
-          </motion.span>
-        </span>
-      ))}
-    </span>
-  );
-}

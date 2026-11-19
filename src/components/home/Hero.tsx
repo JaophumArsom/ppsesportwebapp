@@ -8,37 +8,22 @@ import { HeroCarousel } from "@/components/home/HeroCarousel";
 import { site } from "@/data/site";
 import { organisation } from "@/data/organization";
 
-function buildHeroStats(
-  memberCount: number,
-  achievementCount: number,
-  tournamentCount: number,
-) {
-  return [
-    { value: "02", label: "สายเกม" },
-    { value: String(memberCount).padStart(2, "0"), label: "สมาชิก" },
-    { value: String(achievementCount).padStart(2, "0"), label: "ผลแข่งขัน" },
-    { value: String(tournamentCount).padStart(2, "0"), label: "รายการ" },
-  ];
-}
-
 export function Hero({
   memberCount = 0,
   achievementCount = 0,
-  tournamentCount = 0,
   images = [],
 }: {
   memberCount?: number;
   achievementCount?: number;
-  tournamentCount?: number;
   /** ภาพพื้นหลังที่เคลื่อนไหวไปทางซ้าย */
   images?: string[];
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const heroStats = buildHeroStats(
-    memberCount,
-    achievementCount,
-    tournamentCount,
-  );
+  const heroStats = [
+    { value: "02", label: "สายเกม" },
+    { value: String(memberCount).padStart(2, "0"), label: "สมาชิก" },
+    { value: String(achievementCount).padStart(2, "0"), label: "ผลงาน" },
+  ];
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -62,12 +47,16 @@ export function Hero({
       />
       <motion.div
         style={{ opacity: fade }}
-        className="pointer-events-none absolute -left-32 top-24 -z-10 h-96 w-96 rounded-full bg-pink/40 blur-[110px]"
+        className="pointer-events-none absolute -left-24 top-20 -z-10 h-80 w-80 rounded-full bg-pink/25 blur-[100px]"
         aria-hidden="true"
       />
       <motion.div
         style={{ opacity: fade }}
-        className="pointer-events-none absolute -right-24 top-10 -z-10 h-[26rem] w-[26rem] rounded-full bg-sky/50 blur-[120px]"
+        className="pointer-events-none absolute -right-20 top-8 -z-10 h-[22rem] w-[22rem] rounded-full bg-sky/30 blur-[110px]"
+        aria-hidden="true"
+      />
+      <div
+        className="accent-line pointer-events-none absolute inset-x-0 top-0 -z-10 h-px opacity-70"
         aria-hidden="true"
       />
 
@@ -79,10 +68,11 @@ export function Hero({
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/75 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-soft shadow-soft backdrop-blur"
+              className="relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-ink/10 bg-white/75 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-soft shadow-soft backdrop-blur"
             >
               <Sparkles className="h-3.5 w-3.5 text-pink-deep" />
               {site.school}
+              <span className="accent-line pointer-events-none absolute inset-x-0 bottom-0 h-px opacity-70" aria-hidden="true" />
             </motion.span>
 
             <h1 className="mt-6 font-display text-[clamp(2.75rem,9vw,5.25rem)] font-extrabold leading-[0.95] tracking-[-0.035em]">
@@ -133,7 +123,7 @@ export function Hero({
               className="mt-5 max-w-xl text-[15px] leading-relaxed text-ink-mute sm:text-base"
             >
               {organisation.name} คือสังกัดอีสปอร์ตของ{organisation.school} —
-              จุดรวมของนักกีฬา โค้ช ทีมงาน และความทรงจำทั้งหมดของการแข่งขัน
+              ที่รวมนักกีฬา ทีมงาน และผลงานการแข่งขันไว้ในที่เดียว
             </motion.p>
 
             <motion.div
@@ -194,7 +184,7 @@ export function Hero({
             className="group inline-flex flex-col items-center gap-2 text-ink-mute transition-colors hover:text-ink"
           >
             <span className="text-[10px] font-semibold uppercase tracking-[0.28em]">
-              Scroll
+              เลื่อนดูต่อ
             </span>
             <motion.span
               animate={{ y: [0, 7, 0] }}

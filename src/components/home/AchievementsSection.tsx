@@ -14,14 +14,14 @@ export async function AchievementsSection() {
       <div className="container-page">
         <Reveal>
           <SectionHeading
-            eyebrow="Achievements and Awards"
+            eyebrow="ผลงานการแข่งขัน"
             title={
               <>
                 ผลงานและ{" "}
                 <span className="text-gradient-soft">รางวัล</span>
               </>
             }
-            description="ผลงานการแข่งขันและอันดับที่สังกัดคว้ามาได้ตลอดการเดินทางของ PPS Esport"
+            description="ผลการแข่งขันและอันดับที่นักกีฬาของสังกัดทำได้ในแต่ละรายการ"
             action={
               <Link
                 href="/achievements"

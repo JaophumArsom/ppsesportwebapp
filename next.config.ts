@@ -16,13 +16,6 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/**": ["./data/**/*.json"],
   },
-
-  /**
-   * Node.js ที่ต้องใช้ (Vercel จะอ่านจากที่นี่)
-   */
-  async headers() {
-    return [];
-  },
 };
 
 export default nextConfig;

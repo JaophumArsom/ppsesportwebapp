@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { ComponentProps, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 /* -------------------------------------------------------------------------- */
@@ -11,7 +11,7 @@ type Size = "sm" | "md" | "lg";
 
 const variantClass: Record<Variant, string> = {
   primary:
-    "bg-ink text-white shadow-[0_10px_30px_-12px_rgba(20,43,80,0.55)] hover:bg-[#1b3767]",
+    "sheen relative overflow-hidden bg-ink text-white shadow-[0_10px_30px_-12px_rgba(20,43,80,0.55)] hover:bg-[#1b3767]",
   secondary:
     "bg-gradient-to-r from-pink to-sky text-ink shadow-[0_10px_30px_-14px_rgba(46,155,209,0.6)] hover:from-[#f8cde0] hover:to-[#b6e4f8]",
   outline:
@@ -168,9 +168,10 @@ export function SectionHeading({
     >
       <div className={cn("flex flex-col gap-4", align === "center" && "items-center")}>
         {eyebrow ? (
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-soft ring-1 ring-ink/10 backdrop-blur">
+          <span className="relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white/80 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-soft ring-1 ring-ink/10 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-pink-deep to-sky-deep" />
             {eyebrow}
+            <span className="accent-line pointer-events-none absolute inset-x-0 bottom-0 h-px opacity-70" aria-hidden="true" />
           </span>
         ) : null}
         <h2
@@ -197,28 +198,4 @@ export function SectionHeading({
   );
 }
 
-/* -------------------------------------------------------------------------- */
-/*                              Divider / accents                             */
-/* -------------------------------------------------------------------------- */
 
-export function GradientRule({ className }: { className?: string }) {
-  return (
-    <div
-      className={cn(
-        "h-px w-full bg-gradient-to-r from-transparent via-pink/60 to-transparent",
-        className,
-      )}
-    />
-  );
-}
-
-/** Small uppercase label used above section titles. */
-export function Eyebrow({ children }: { children: ReactNode }) {
-  return (
-    <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-sky-deep">
-      {children}
-    </span>
-  );
-}
-
-export type { ComponentProps };

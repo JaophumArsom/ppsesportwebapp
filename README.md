@@ -73,8 +73,11 @@ PPSESPORT เป็นเว็บไซต์แบบ **Portfolio / Showcase**
 
 ### ข้อกำหนดระบบ
 
-- Node.js **20.9+** (แนะนำ 22 หรือ 24)
+- Node.js **20.9+** (แนะนำ 22 หรือ 24 — โปรเจกต์มี `.nvmrc` = 22 ไว้ให้)
 - npm 10+ / pnpm / yarn / bun (ใดก็ได้)
+
+> ใช้ได้เหมือนกันทั้ง **Windows · macOS (Intel / Apple Silicon) · Linux**
+> คำสั่ง npm ทุกตัวเหมือนกันหมด ต่างกันแค่การติดตั้ง Node และคำสั่งจัดการ process
 
 ### 1. ติดตั้ง Dependencies
 
@@ -108,7 +111,93 @@ npm run start     # serve ผลลัพธ์ของ production build
 | `npm run build` | สร้าง production build + ตรวจ TypeScript |
 | `npm run start` | รัน production build |
 | `npm run lint` | ตรวจสอบโค้ดด้วย ESLint |
-| `npm run typecheck` | ตรวจสอบ TypeScript อย่างเดียว (`tsc --noEmit`) |
+| `npm run typecheck` | ตรวจสอบ TypeScript อย่างเดียว (`next typegen` + `tsc --noEmit`) |
+| `npm run clean` | ลบ `.next` และ `tsconfig.tsbuildinfo` (ใช้เมื่อ build แปลก ๆ) |
+| `npm run check` | lint + typecheck + build ครั้งเดียวจบ (ก่อน push) |
+
+### 5. รันบน macOS (Local)
+
+> ใช้ได้ทั้ง **Mac Intel และ Apple Silicon (M1–M4)** — ไม่ต้องติดตั้ง Rosetta
+
+**5.1 ติดตั้ง Node.js 22** (ถ้ายังไม่มี)
+
+```bash
+# วิธีที่แนะนำ: nvm
+brew install nvm
+mkdir -p ~/.nvm
+
+# เพิ่ม 2 บรรทัดนี้ต่อท้าย ~/.zshrc (ทำครั้งเดียว)
+echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
+echo '[ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh"' >> ~/.zshrc
+source ~/.zshrc
+
+nvm install 22
+nvm use 22          # หรือพิมพ์ `nvm use` เฉย ๆ ก็ได้ เพราะมี .nvmrc แล้ว
+```
+
+หรือใช้ Homebrew ตรง ๆ (ไม่ต้องใช้ nvm):
+
+```bash
+brew install node@22
+```
+
+ตรวจสอบว่าพร้อม:
+
+```bash
+node -v    # ต้อง >= v20.9
+npm -v
+```
+
+**5.2 ดึงโปรเจกต์และรัน**
+
+```bash
+git clone https://github.com/JaophumArsom/ppsesportwebapp.git
+cd ppsesportwebapp
+npm install
+npm run dev
+```
+
+เปิด **http://localhost:3000** — หน้า Admin อยู่ที่ **http://localhost:3000/admin**
+
+**5.3 ถ้าย้ายโฟลเดอร์มาจาก Windows (copy ไฟล์ ไม่ได้ clone ผ่าน git)**
+
+`node_modules` และ `.next` ที่สร้างบน Windows ใช้บน Mac ไม่ได้ (คนละ CPU / binary)
+ต้องลบทิ้งแล้วติดตั้งใหม่:
+
+```bash
+rm -rf node_modules .next
+npm install
+npm run dev
+```
+
+> ถ้าในโฟลเดอร์มีไฟล์ `tsconfig.tsbuildinfo` ที่สร้างจาก Windows ค้างอยู่ ให้ลบทิ้งด้วย
+> (`npm run clean` ลบให้ทั้ง `.next` และ `tsconfig.tsbuildinfo`)
+
+**5.4 คำสั่งที่ใช้บ่อยบน macOS**
+
+| งาน | คำสั่ง |
+| --- | --- |
+| ปิดพอร์ต 3000 ที่ค้าง | `lsof -ti:3000 \| xargs kill -9` |
+| เปลี่ยนพอร์ตชั่วคราว | `npm run dev -- -p 3001` |
+| ล้าง build cache | `npm run clean` |
+| ตรวจทั้งหมดก่อน push | `npm run check` |
+| ดูไฟล์ที่ขึ้นต้นด้วย `.` ใน Finder | `Cmd + Shift + .` |
+| เปิดโฟลเดอร์โปรเจกต์ใน Finder | `open .` |
+
+**5.5 หมายเหตุเฉพาะ macOS**
+
+- **ต้องมีอินเทอร์เน็ตตอน `npm run dev` / `npm run build` ครั้งแรก** — ฟอนต์ Sora และ
+  IBM Plex Sans Thai โหลดผ่าน `next/font/google` (หลังจากนั้นจะถูก cache)
+- macOS (ค่าเริ่มต้น) **ไม่แยกตัวพิมพ์เล็ก/ใหญ่** ในชื่อไฟล์ แต่ **Vercel / Linux แยก**
+  → ตั้งชื่อไฟล์รูปเป็น **ตัวพิมพ์เล็กทั้งหมด** เสมอ และรัน `npm run images:check` ก่อน push
+- ถ้าเจอ error เรื่อง native module (`sharp`, `lightningcss`, `@next/swc-*`)
+  → `xcode-select --install` แล้ว `rm -rf node_modules && npm install`
+- **อย่าวางโปรเจกต์ในโฟลเดอร์ที่เขียนไม่ได้** (เช่น `/Applications`) เพราะหน้า `/admin`
+  ต้องเขียนไฟล์ใน `data/` — แนะนำ `~/Documents` หรือ `~/Developer`
+- `.DS_Store`, `._*` และไฟล์ของ Spotlight ถูก ignore ไว้แล้ว
+  (ไม่ต้องกังวลว่าจะหลุดขึ้น GitHub)
+- Git ตั้ง line ending เป็น LF ทั้งโปรเจกต์ผ่าน `.gitattributes`
+  → ไฟล์ที่แก้บน Mac กับ Windows จะไม่เกิด diff รกทั้งไฟล์
 
 ---
 
